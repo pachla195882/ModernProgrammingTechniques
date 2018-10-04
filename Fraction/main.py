@@ -1,7 +1,16 @@
+from math import gcd
+
 class Fraction(object):
     def __init__(self,nominator,denominator):
-        self.nominator = nominator
-        self.denominator = denominator
+        self.nominator = nominator/gcd(nominator,denominator)
+        self.denominator = denominator/gcd(nominator,denominator)
+        if denominator < 0:
+            raise ValueError("Denominator is smaller than zero!")
+        elif nominator < 0:
+            raise ValueError("Nominator is smaller than zero!")
+        elif denominator == 0:
+            raise ValueError("Denominator is equal to 0!")
+
 
     def value(self):
         result = float(self.nominator)/float(self.denominator)
@@ -20,4 +29,4 @@ class Fraction(object):
         return Fraction(self.nominator/other.denominator,self.denominator/other.denominator)
 
     def __str__(self):
-        return self.nominator+"/"+self.denominator
+        return "%s \ %s" % ( self.nominator, self.denominator )

@@ -13,3 +13,4 @@ fraction.__mul__(fraction2)
 fraction2.__truediv__(fraction)
 
 
+print(c)
